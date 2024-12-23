@@ -1,9 +1,11 @@
-import * as THREE from 'three';
-import { EngineStore } from '../../../stores/engine/EngineStore';
+import { EngineStore } from "../../../stores/engine/EngineStore";
 
-export const calculateAerodynamicEffects = (engine: EngineStore, rollAngle: number) => {
+export const calculateAerodynamicEffects = (
+  engine: EngineStore,
+  rollAngle: number
+) => {
   // Engine effects (P-factor, torque, slipstream)
-  const powerFactor = engine.engineStarted ? (engine.throttle / 100) : 0;
+  const powerFactor = engine.engineStarted ? engine.throttle / 100 : 0;
   const leftTurnTendency = -5 * powerFactor;
 
   // Calculate pitch change due to roll (proverse roll)
@@ -12,6 +14,6 @@ export const calculateAerodynamicEffects = (engine: EngineStore, rollAngle: numb
 
   return {
     leftTurnTendency,
-    rollInducedPitch
+    rollInducedPitch,
   };
 };

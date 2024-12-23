@@ -1,18 +1,18 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import { observer } from 'mobx-react-lite';
-import { PlaneModel } from './PlaneModel';
-import { Yoke } from './parts/Yoke';
-import { RudderPedals } from './parts/RudderPedals';
-import { OrientationCube } from './parts/OrientationCube';
-import { useYokeControl } from './hooks/useYokeControl';
-import { useKeyboardControls } from '../../hooks/useKeyboardControls';
-import { useControlSounds } from '../../hooks/useControlSounds';
-import { useEngineSounds } from '../../hooks/useEngineSounds';
-import { styles } from './styles';
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { observer } from "mobx-react-lite";
+import { PlaneModel } from "./PlaneModel";
+import { Yoke } from "./parts/Yoke";
+import { RudderPedals } from "./parts/RudderPedals";
+import { OrientationCube } from "./parts/OrientationCube";
+import { useYokeControl } from "./hooks/useYokeControl";
+import { useKeyboardControls } from "../../hooks/useKeyboardControls";
+import { useControlSounds } from "../../hooks/useControlSounds";
+import { useEngineSounds } from "../../hooks/useEngineSounds";
+import { styles } from "./styles";
 
 export const Plane3D = observer(() => {
-  useYokeControl('yoke-view', {
+  useYokeControl("yoke-view", {
     sensitivity: 0.3,
     returnToCenter: true,
   });
@@ -30,7 +30,7 @@ export const Plane3D = observer(() => {
         <PlaneModel />
         <OrientationCube />
         <OrbitControls target={[0, 0, 0]} />
-        <gridHelper args={[20, 20, '#444444', '#222222']} />
+        <gridHelper args={[20, 20, "#444444", "#222222"]} />
       </Canvas>
 
       {/* Yoke viewport */}
@@ -61,9 +61,9 @@ export const Plane3D = observer(() => {
       <div {...styles.controls}>
         Use arrow keys to control the yoke:
         <br />
-        ↑ Pull back (nose up)
+        ↑ Push forward (nose down)
         <br />
-        ↓ Push forward (nose down)
+        ↓ Pull back (nose up)
         <br />
         ← Roll left
         <br />
