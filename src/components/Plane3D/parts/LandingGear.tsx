@@ -5,8 +5,12 @@ export const LandingGear = () => {
   return (
     <group>
       {/* Main landing gear (left) */}
-      <group position={[0, -0.8, -1]}>
-        <Cylinder args={[0.05, 0.05, 0.8]} position={[0, 0.4, 0]}>
+      <group position={[0, -1, -0.6]}>
+        <Cylinder
+          args={[0.05, 0.05, 1]}
+          position={[0, 0.4, 0]}
+          rotation={[Math.PI / -1.5, 0, 0]}
+        >
           <meshStandardMaterial color={COLORS.STRUTS} />
         </Cylinder>
       </group>
@@ -19,13 +23,13 @@ export const LandingGear = () => {
       </group>
 
       {/* Main landing gear (right) */}
-      <group position={[0, -0.8, 1]}>
+      <group position={[0, -1, 0.6]}>
         <Cylinder
-          args={[0.05, 0.05, 0.8]}
+          args={[0.05, 0.05, 1]}
           position={[0, 0.4, 0]}
           rotation={[Math.PI / 1.5, 0, 0]}
         >
-          <meshStandardMaterial color={"green"} />
+          <meshStandardMaterial color={COLORS.STRUTS} />
         </Cylinder>
       </group>
 
@@ -48,12 +52,12 @@ export const LandingGear = () => {
 
       {/* Wheel fairings */}
       <group>
-        {/* Left fairing */}
+        {/* Left fairing, white box on top of the tire */}
         <mesh position={[0, -0.7, -1]}>
           <boxGeometry args={[0.3, 0.2, 0.25]} />
           <meshStandardMaterial color={COLORS.FUSELAGE} />
         </mesh>
-        {/* Right fairing */}
+        {/* Right fairing  white box on top of the tire*/}
         <mesh position={[0, -0.7, 1]}>
           <boxGeometry args={[0.3, 0.2, 0.25]} />
           <meshStandardMaterial color={COLORS.FUSELAGE} />

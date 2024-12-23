@@ -9,6 +9,7 @@ import { useKeyboardControls } from "../../hooks/useKeyboardControls";
 import { useControlSounds } from "../../hooks/useControlSounds";
 import { useEngineSounds } from "../../hooks/useEngineSounds";
 import { styles } from "./styles";
+import { Runway } from "./environment/Runway";
 
 export const Plane3D = observer(() => {
   useYokeControl("yoke-view", {
@@ -27,6 +28,7 @@ export const Plane3D = observer(() => {
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <PlaneModel />
+        <Runway />
         <OrbitControls target={[0, 0, 0]} />
         <gridHelper args={[20, 20, "#444444", "#222222"]} />
       </Canvas>

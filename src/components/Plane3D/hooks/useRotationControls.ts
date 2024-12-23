@@ -1,11 +1,10 @@
-import { useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
-import { store } from '../../../stores';
-import { RotationControlsProps } from '../types';
-import { 
-  updatePlaneRotation, 
-  updateControlSurfaces 
-} from '../utils/rotationUtils';
+import { useFrame } from "@react-three/fiber";
+import { store } from "../../../stores";
+import { RotationControlsProps } from "../types";
+import {
+  updatePlaneRotation,
+  updateControlSurfaces,
+} from "../utils/rotationUtils";
 
 export const useRotationControls = ({
   planeRef,
@@ -15,7 +14,7 @@ export const useRotationControls = ({
   rightAileronRef,
   elevatorRef,
   trimTabRef,
-  rudderRef
+  rudderRef,
 }: RotationControlsProps) => {
   useFrame(() => {
     // Update main plane rotation (pitch, roll, yaw)
@@ -33,7 +32,7 @@ export const useRotationControls = ({
       trimTabRef,
       rudderRef,
       controls: store.controls,
-      engine: store.engine
+      engine: store.engine,
     });
   });
 };

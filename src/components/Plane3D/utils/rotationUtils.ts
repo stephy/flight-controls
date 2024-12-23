@@ -8,8 +8,8 @@ export const updatePlaneRotation = (
   controls: FlightControlStore,
   engine: EngineStore
 ) => {
-  const rollAngle = THREE.MathUtils.degToRad(-controls.ailerons);
-
+  // Convert control inputs to radians
+  const rollAngle = THREE.MathUtils.degToRad(controls.ailerons);
   const { leftTurnTendency, rollInducedPitch } = calculateAerodynamicEffects(
     engine,
     controls.ailerons
@@ -19,7 +19,7 @@ export const updatePlaneRotation = (
     controls.elevator + rollInducedPitch
   );
   const yawAngle = THREE.MathUtils.degToRad(
-    controls.rudder * 0.3 + leftTurnTendency
+    -controls.rudder * 0.3 + leftTurnTendency
   );
 
   const quaternion = new THREE.Quaternion();
