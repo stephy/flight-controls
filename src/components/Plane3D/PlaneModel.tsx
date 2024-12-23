@@ -1,12 +1,15 @@
-import { useRef } from 'react';
-import { observer } from 'mobx-react-lite';
-import * as THREE from 'three';
-import { Fuselage } from './parts/Fuselage';
-import { Wings } from './parts/Wings';
-import { TailSection } from './parts/TailSection';
-import { Propeller } from './parts/Propeller';
-import { LandingGear } from './parts/LandingGear';
-import { useRotationControls } from './hooks/useRotationControls';
+import { useRef } from "react";
+import { observer } from "mobx-react-lite";
+import * as THREE from "three";
+import { Fuselage } from "./parts/Fuselage";
+import { Wings } from "./parts/Wings";
+import { TailSection } from "./parts/TailSection";
+import { Propeller } from "./parts/Propeller";
+import { LandingGear } from "./parts/LandingGear";
+
+import { useRotationControls } from "./hooks/useRotationControls";
+import { AircraftLights } from "./parts/AircraftLights";
+import { LightIndicators } from "./parts/LightIndicators";
 
 export const PlaneModel = observer(() => {
   const planeRef = useRef<THREE.Group>(null);
@@ -45,6 +48,8 @@ export const PlaneModel = observer(() => {
       />
       <Propeller />
       <LandingGear />
+      <AircraftLights />
+      <LightIndicators />
     </group>
   );
 });

@@ -4,7 +4,6 @@ import { observer } from "mobx-react-lite";
 import { PlaneModel } from "./PlaneModel";
 import { Yoke } from "./parts/Yoke";
 import { RudderPedals } from "./parts/RudderPedals";
-import { OrientationCube } from "./parts/OrientationCube";
 import { useYokeControl } from "./hooks/useYokeControl";
 import { useKeyboardControls } from "../../hooks/useKeyboardControls";
 import { useControlSounds } from "../../hooks/useControlSounds";
@@ -28,7 +27,6 @@ export const Plane3D = observer(() => {
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <PlaneModel />
-        <OrientationCube />
         <OrbitControls target={[0, 0, 0]} />
         <gridHelper args={[20, 20, "#444444", "#222222"]} />
       </Canvas>
